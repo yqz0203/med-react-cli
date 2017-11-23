@@ -1,0 +1,7 @@
+{
+  "routeDir": "test/routes",
+  "componentDir": "test/components",
+  "containerDir": "test/containers",
+  "moduleDir": "test/modules",
+  "author": "qizhang.yang <yangqizhang@medlinker.com>"
+}

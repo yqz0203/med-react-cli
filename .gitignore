@@ -1,0 +1,12 @@
+# dependencies
+/node_modules
+
+# testing
+/dist
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# webstorm-ignore-conf
+/.idea

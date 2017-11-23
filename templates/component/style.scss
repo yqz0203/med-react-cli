@@ -1,0 +1,85 @@
+@import '../../styles/_core.scss';
+.rc-btn {
+  height: rem(44);
+  border: none;
+  font-size: rem(16);
+  line-height: rem(22);
+  padding: rem(10) rem(12) rem(12);
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  font-size: rem(16);
+  text-align: center;
+  vertical-align: middle;
+  outline: none;
+  transition: all .15s ease;
+}
+
+.rc-btn-primary {
+  color: #ffffff;
+  background-color: $color-theme;
+  &:active {
+    background-color: darken($color: $color-theme, $amount: 10)
+  }
+}
+
+.rc-btn-danger {
+  color: #ff5967;
+  background-color: #ffffff;
+  border: rem(1) solid #ff5967;
+  &:active {
+    color: #ffffff; // transition: all .05s linear;
+    background-color: #ff5967;
+  }
+}
+
+.wechat-pay-icon {
+  display: inline-block;
+  margin-right: rem(16);
+  @include bg-img('./assets/ico_wechat_pay');
+  width: rem(20);
+  height: rem(18);
+  vertical-align: sub;
+}
+
+.rc-btn-charge {
+  color: #ffffff;
+  background-color: #09ba08;
+  &:active {
+    transition: none;
+    background-color: darken($color: #09ba08, $amount: 10)
+  }
+}
+
+.rc-btn-radius {
+  border-radius: rem(6);
+}
+
+.rc-btn-block {
+  display: block;
+  width: 100%;
+}
+
+.rc-btn-container {
+  margin: 0 rem(16);
+}
+
+.rc-btn-disabled {
+  background-color: #fff;
+  color: $color-font-light;
+  border: none;
+  transition: none;
+  &:active {
+    background-color: #fff;
+  }
+}
+
+.rc-btn-normal {
+  background-color: #fff;
+  color: $color-theme;
+  border: rem(1) solid $color-theme;
+  &:active {
+    background-color: $color-theme;
+    color: #fff;
+    transition: none;
+  }
+}
