@@ -1,4 +1,5 @@
 {
+  "appDir": "test/app",
   "routeDir": "test/routes",
   "componentDir": "test/components",
   "containerDir": "test/containers",

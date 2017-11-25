@@ -12,6 +12,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/yqz0203/med-react-cli"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
