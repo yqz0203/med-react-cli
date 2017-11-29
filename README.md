@@ -2,7 +2,7 @@
 
 ## 用法
 
-`npm install med-react-cli`
+`npm install med-react-cli -g` or `yarn global add med-react-cli`
 
 `medr --help`
 
