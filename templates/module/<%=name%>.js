@@ -9,8 +9,8 @@
 
 import { call, put, takeLatest, fork, all } from 'redux-saga/effects'
 
-import http from '../../utils/http'
-import createReducer from '../createReducer'
+import http from '../utils/http'
+import createReducer from './tools/createReducer'
 
 const namespace = '<%=name%>'
 const LOAD = `${namespace}/LOAD`
@@ -52,7 +52,7 @@ const INITIAL_STATE = {
   error: null
 }
 
-export const selector = (state) => get(state, namespace)
+export const selector = (state) => state[namespace]
 
 export default createReducer(INITIAL_STATE, ACTION_HANDLERS)
 

@@ -24,6 +24,9 @@ exports.builder = (yargs) => {
   }).option('redux', {
     alias: 'r',
     describe: '使用redux进行链接'
+  }).option('exact', {
+    alias: 'e',
+    describe: '使用严格匹配模式'
   }).option('remove', {
     describe: '删除路由'
   })
@@ -58,10 +61,12 @@ function parseName(name) {
  * @param {*} content 
  * @param {*} filename 
  * @param {*} routeName 
+ * @param {*} routePath 
+ * @param {*} exact 
  */
-function insertCode(content, filename, routeName) {
-  let importCode = `\nconst ${_name}Route = asyncComponent(() => import('${relativeFromRouteDir}/${name}'))`
-  let routeCode = `<Route path='${routePath}' component={${_name}Route} />`
+function insertCode(content, filename, routeName, routePath, exact) {
+  let importCode = `\nconst ${routeName}Route = asyncComponent(() => import('${relativeFromRouteDir}/${filename}'))`
+  let routeCode = `<Route path='${routePath}'${exact?' exact':''} component={${routeName}Route} />`
   return content
     .replace(/(?=\s*class\s*Routes\s*extends)/, importCode) // 添加import代码
     .replace(/(?=\n*(\s*)<Route((?!<Route)[\s\S])+<\/Switch>)/, `\n$1${routeCode}`) // 添加route代码，考虑到可能有404，所以在最后一个route之上写    
@@ -96,7 +101,7 @@ function getDistPath(name) {
  */
 async function createRoute(argv) {
   try {
-    const { name, redux } = argv
+    const { name, redux, exact } = argv
     let routePath = argv.path
     if (!routePath) {
       routePath = `/${name.toLowerCase()}`
@@ -119,7 +124,7 @@ async function createRoute(argv) {
       // 移除旧代码
       content = removeCode(content, name, _name)
       // 插入新代码
-      content = insertCode(content, name, _name)
+      content = insertCode(content, name, _name, routePath, exact)
       fs.writeFileSync(routeFilePath, content)
     }
 

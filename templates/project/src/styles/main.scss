@@ -1,0 +1,29 @@
+@import '../../node_modules/normalize.scss/normalize.scss';
+html,
+body {
+  height: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  line-height: 1.4;
+  font-size: rem(15);
+  font-family: PingFangSC-Regular;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+textarea {
+  -webkit-appearance: none;
+}

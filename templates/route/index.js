@@ -11,7 +11,7 @@ import <%= name %> from './{{name}}.jsx'
 <%if(redux){%>
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { actions, selector } from '../../redux/modules/<%= name %>'
+import { actions, selector } from '../../modules/<%= name %>'
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -9,11 +9,11 @@ const path = require('path')
  * 默认配置
  */
 const config = {
-  app: 'dist/app',
-  componentDir: 'dist/components',
-  containerDir: 'dist/containers',
-  moduleDir: 'dist/modules',
-  routeDir: 'dist/routes',
+  appDir: 'src/app',
+  componentDir: 'src/components',
+  containerDir: 'src/containers',
+  moduleDir: 'src/modules',
+  routeDir: 'src/routes',
 }
 
 if (fs.existsSync('medr.json')) {

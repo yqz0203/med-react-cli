@@ -10,19 +10,19 @@ const Logger = {
   log() {
     return console.log(chalk.greenBright(...arguments))
   },
-  logMessage(){
+  logMessage() {
     return chalk.greenBright(...arguments)
   },
   warn() {
     return console.log(chalk.yellowBright(...arguments))
   },
-  warnMessage(){
+  warnMessage() {
     return chalk.yellowBright(...arguments)
   },
   error() {
     return console.log(chalk.redBright(...arguments))
   },
-  errorMessage(){
+  errorMessage() {
     return chalk.redBright(...arguments)
   },
 }
@@ -79,20 +79,18 @@ async function genFiles(root, dist, data, checkRepeat = true) {
   }
 
   function start() {
-    Logger.log('---------- 分析文件 -----------')
     const results = genTemplate(root, data)
-    Logger.log('---------- 分析完成，开始创建文件 ---------')
     Logger.log('')
     results.forEach((one) => {
       const { type, content, fullPath } = one
       const relativePath = path.relative(root, fullPath)
       const distFullPath = path.resolve(dist, relativePath)
       if (type === 'file') {
-        Logger.log(`复制文件：${distFullPath}`)
+        Logger.log(`新建文件：${distFullPath}`)
         fs.ensureFileSync(distFullPath)
         fs.writeFileSync(distFullPath, content)
       } else {
-        Logger.log(`复制文件夹：${distFullPath}`)
+        Logger.log(`新建文件夹：${distFullPath}`)
         fs.ensureDirSync(distFullPath)
       }
     })
@@ -110,12 +108,15 @@ exports.genFiles = genFiles
 function genTemplate(dir, data) {
   const files = fs.readdirSync(dir)
   if (files.length === 0) return []
-  return files.reduce((pre, file) => {
-    let filePath = path.resolve(dir, file)
+  return files.reduce((pre, filename) => {
+    let filePath = path.resolve(dir, filename)
     let stat = fs.statSync(filePath)
-    if (stat.isFile() && file[0] !== '.') {
-      const fileContent = template(filePath, data)
-      const fullPath = template.render(filePath, data)
+    if (stat.isFile() && filename !== '.DS_Store') {
+      let fileContent = fs.readFileSync(filePath).toString() || ''
+      if (filename[0] !== '.') {
+        fileContent = template.render(fileContent || ' ', data)
+      }
+      const fullPath = template.render(filePath || ' ', data)
       return pre.concat([{
         type: 'file',
         fullPath: fullPath,
@@ -123,10 +124,11 @@ function genTemplate(dir, data) {
       }])
     }
     if (stat.isDirectory()) {
-      return pre.concat({
+      return pre.concat([{
         type: 'dic',
         fullPath: filePath
-      }, genTemplate(filePath, data))
+      }], genTemplate(filePath, data)
+      )
     }
     return pre
   }, [])

@@ -11,3 +11,5 @@ yarn-error.log*
 
 # webstorm-ignore-conf
 /.idea
+
+/hello-app

@@ -64,7 +64,7 @@ async function createComponent(argv) {
  */
 async function removeComponent(argv) {
   try {
-    const { name, pure } = argv
+    const { name } = argv
     const confirmed = await confirm(`确认删除组件 ${name} 吗？相关引用可能需要手动删除。`)
     if (!confirmed) {
       return

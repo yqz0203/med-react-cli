@@ -1,8 +1,8 @@
 {
-  "appDir": "test/app",
-  "routeDir": "test/routes",
-  "componentDir": "test/components",
-  "containerDir": "test/containers",
-  "moduleDir": "test/modules",
+  "appDir": "src/app",
+  "routeDir": "src/routes",
+  "componentDir": "src/components",
+  "containerDir": "src/containers",
+  "moduleDir": "src/modules",
   "author": "qizhang.yang <yangqizhang@medlinker.com>"
 }
