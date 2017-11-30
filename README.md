@@ -1,4 +1,4 @@
-快速创建react+redux应用和常用文件，应用开发环境基于create-react-app.
+快速创建react+redux应用和常用文件，应用开发环境基于create-react-app.
 
 # 用法
 
