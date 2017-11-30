@@ -2,7 +2,7 @@
 
 # 用法
 
-`npm install med-react-cli -g` or `yarn global add med-react-cli`
+`npm install med-react-cli -g` 或 `yarn global add med-react-cli`
 
 `medr --help`
 
@@ -10,25 +10,43 @@
 
 >> 使用相关命令会自动插入相应代码，如创建route会在路由文件中自动插入引用代码，删除文件会在路由文件中删除引用代码。
 
-## 创建一个引用
+## 创建应用
 
 `medr init HelloApp`
 
-## 创建一个路由
+或
 
-`medr route Home` or `medr r Home`
+`medr i HelloApp`
 
-## 创建一个组件
+## 创建路由
 
-`medr component Button` or `medr c Button`
+`medr route Home`
 
-## 创建一个模块
+或
 
-`medr module Login` or `medr m login`
+ `medr r Home`
+
+## 创建组件
+
+`medr component Button`
+
+或
+
+`medr c Button`
+
+## 创建模块
+
+`medr module Login`
+
+或
+
+`medr m login`
 
 ## `--remove`
 
-命令后面加上 `--remove` 或者 `-r`即为删除
+命令后面加上 `--remove` 或 `-r`即为删除
+
+例如`med route Home --remove`
 
 >>更多用法请使用`--help`查看
 
