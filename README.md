@@ -10,15 +10,15 @@
 
 >> 使用相关命令会自动插入相应代码，如创建route会在路由文件中自动插入引用代码，删除文件会在路由文件中删除引用代码。
 
-## 创建一个引用
+## 创建一个引用
 
 `medr init HelloApp`
 
-## 创建一个路由
+## 创建一个路由
 
 `medr route Home` or `medr r Home`
 
-## 创建一个组件
+## 创建一个组件
 
 `medr component Button` or `medr c Button`
 
