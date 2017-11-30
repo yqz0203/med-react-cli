@@ -1,4 +1,4 @@
-快速创建react+redux应用和常用文件，应用开发环境基于create-react-app.
+快速创建 `react+redux` 应用和常用文件，应用开发环境基于 [create-react-app](https://github.com/facebookincubator/create-react-app).
 
 # 用法
 
@@ -46,7 +46,7 @@
 
 命令后面加上 `--remove` 或 `-r`即为删除
 
-例如`med route Home --remove`
+例如 `med route Home --remove`
 
 >>更多用法请使用`--help`查看
 
