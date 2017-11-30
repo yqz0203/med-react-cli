@@ -22,7 +22,7 @@
 
 `medr component Button` or `medr c Button`
 
-## 创建一个模块
+## 创建一个模块
 
 `medr module Login` or `medr m login`
 
